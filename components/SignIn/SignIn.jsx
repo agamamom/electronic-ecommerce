@@ -1,10 +1,9 @@
-import { useState } from 'react';
-
+import React, { useState } from 'react';
+import { toast } from 'react-hot-toast';
 import FormInput from '../FormInput/FormInput';
-import { auth } from '../../utils/firebase';
-import { useNavigate } from 'react-router-dom';
+import { auth, signInWithGooglePopup, signInAuthUserWithEmailAndPassword } from '../../utils/firebase';
+import { useRouter } from 'next/router';
 
-import './SignIn.module.scss';
 
 const defaultFormFields = {
     email: '',
@@ -12,7 +11,7 @@ const defaultFormFields = {
 };
 
 const SignInForm = () => {
-    const navigate = useNavigate();
+    const router = useRouter();
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { email, password } = formFields;
 
@@ -28,18 +27,22 @@ const SignInForm = () => {
     const signInWithGoogle = async (event) => {
         event.preventDefault();
 
-        await auth.signInWithPopup();
+        await signInWithGooglePopup();
+        router.push('/');
     };
+
+
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
         try {
-            await auth.signInWithEmailAndPassword(email, password)
-            navigate("/");
+            await signInAuthUserWithEmailAndPassword(email, password)
+            router.push('/');
         } catch (error) {
             console.log('user sign in failed', error);
         }
+        toast.success('Login Successfully!');
     };
 
     const handleChange = (event) => {
@@ -71,9 +74,9 @@ const SignInForm = () => {
                     value={password}
                 />
                 <div className='buttons-container'>
-                    <button type='submit' className="remove-item">Sign In</button>
+                    <button type='submit' className="signIn-button">Sign In</button>
 
-                    <button type='button' onClick={signInWithGoogle} className="remove-item">
+                    <button type='button' onClick={signInWithGoogle} className="google-signIn-button">
                         Sign In With Google
                     </button>
                 </div>

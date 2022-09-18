@@ -1,11 +1,9 @@
-import { useState } from 'react';
-
+import React, { useState } from 'react';
+import { toast } from 'react-hot-toast';
 import FormInput from '../FormInput/FormInput';
 
-import { auth } from '../../utils/firebase';
+import { auth, createAuthUserWithEmailAndPassword } from '../../utils/firebase';
 
-
-import './SignUp.module.scss';
 
 const defaultFormFields = {
     displayName: '',
@@ -31,7 +29,7 @@ const SignUpForm = () => {
         }
 
         try {
-            await auth.createUserWithEmailAndPassword(email, password)
+            await createAuthUserWithEmailAndPassword(email, password)
 
             resetFormFields();
         } catch (error) {
@@ -41,6 +39,7 @@ const SignUpForm = () => {
                 console.log('user creation encountered an error', error);
             }
         }
+        toast.success('Sign Up Success!');
     };
 
     const handleChange = (event) => {
@@ -89,7 +88,7 @@ const SignUpForm = () => {
                     name='confirmPassword'
                     value={confirmPassword}
                 />
-                <button className="remove-item" type='submit'>Sign Up</button>
+                <button className="signIn-button " type='submit'>Sign Up</button>
             </form>
         </div>
     );

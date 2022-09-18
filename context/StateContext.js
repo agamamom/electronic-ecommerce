@@ -1,9 +1,9 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useReducer } from 'react';
 import { toast } from 'react-hot-toast';
 
 const Context = createContext();
 
-export const StateContext = ({ children }) => {
+export const StateContext = ({ reducer, initialState, children }) => {
     const [showCart, setShowCart] = useState(false);
     const [cartItems, setCartItems] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
@@ -92,7 +92,7 @@ export const StateContext = ({ children }) => {
                 onRemove,
                 setCartItems,
                 setTotalPrice,
-                setTotalQuantities
+                setTotalQuantities,
             }}
         >
             {children}

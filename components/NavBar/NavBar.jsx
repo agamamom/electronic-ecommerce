@@ -10,16 +10,20 @@ const Navbar = () => {
 
     return (
         <div className="navbar-container">
-            <p className="logo">
-                <Link href="/">JSM Headphones</Link>
+            <p>
+                <Link href="/">
+                    <img className="logo" src="/assets/R.png" alt="" />
+                </Link>
             </p>
-            <p className="logo">
-                <Link href="/authentication">Login</Link>
-            </p>
-            <button type="button" className="cart-icon" onClick={() => setShowCart(true)}>
-                <AiOutlineShopping />
-                <span className="cart-item-qty">{totalQuantities}</span>
-            </button>
+            <div className="navbar-right">
+                <p className="login-button">
+                    <Link href="/authentication">Login</Link>
+                </p>
+                <button type="button" className="cart-icon" onClick={() => setShowCart(true)}>
+                    <AiOutlineShopping />
+                    <span className="cart-item-qty">{totalQuantities}</span>
+                </button>
+            </div>
 
             {showCart && <Cart />}
         </div>

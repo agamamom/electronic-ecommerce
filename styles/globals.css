@@ -32,8 +32,14 @@ a {
 .navbar-container {
   display: flex;
   justify-content: space-between;
-  margin: 6px 18px;
+  margin: 25px 18px;
   position: relative;
+}
+
+.navbar-right {
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .marquee-text {
@@ -79,8 +85,15 @@ span.text-red {
 
 .logo {
   color: gray;
-  font-size: 18px;
+  font-weight: bolder;
+  width: 51px;
+  height: 30px;
+}
 
+.logo-login {
+  display: flex;
+  width: 150px;
+  justify-content: space-between;
 }
 
 .cart-icon {
@@ -893,4 +906,148 @@ span.text-red {
     width: 300px;
     margin: auto;
   }
+}
+
+
+
+
+.group {
+  position: relative;
+  margin: 45px 0;
+}
+
+.group .form-input {
+  background: none;
+  background-color: white;
+  color: grey;
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid grey;
+  margin: 25px 0;
+}
+
+.group .form-input:focus {
+  outline: none;
+}
+
+.group .form-input:focus~.form-input-label {
+  top: -14px;
+  font-size: 12px;
+  color: black;
+}
+
+
+.form-input-label {
+  color: grey;
+  font-size: 16px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 300ms ease all;
+}
+
+.form-input-label .shrink {
+  top: -14px;
+  font-size: 12px;
+  color: black;
+}
+
+.authentication-container {
+  display: flex;
+  width: 900px;
+  justify-content: space-between;
+  margin: 30px auto;
+}
+
+@media screen and (max-width: 800px) {
+  .authentication-container {
+    display: block;
+    width: auto;
+  }
+
+  .signUpForm {
+    padding-top: 60px;
+  }
+}
+
+.sign-in-container {
+  display: flex;
+  flex-direction: column;
+  width: 380px;
+}
+
+.sign-in-container h2 {
+  margin: 10px 0;
+}
+
+.sign-in-container .buttons-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sign-up-container {
+  display: flex;
+  flex-direction: column;
+  width: 380px;
+}
+
+.sign-up-container h2 {
+  margin: 10px 0;
+}
+
+.google-signIn-button {
+  min-width: 165px;
+  width: auto;
+  height: 50px;
+  letter-spacing: 0.5px;
+  line-height: 50px;
+  padding: 0 35px 0 35px;
+  font-size: 15px;
+  background-color: #4285f4;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bolder;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.google-signIn-button:hover {
+  background-color: #357ae8;
+  border: none;
+}
+
+.signIn-button {
+  min-width: 165px;
+  width: auto;
+  height: 50px;
+  letter-spacing: 0.5px;
+  line-height: 50px;
+  padding: 0 35px 0 35px;
+  font-size: 15px;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  text-transform: uppercase;
+  font-weight: bolder;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signIn-button:hover {
+  background-color: black;
+  color: white;
+  border: none;
 }

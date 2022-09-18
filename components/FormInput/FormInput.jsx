@@ -1,4 +1,5 @@
-import './FormInput.module.scss';
+
+import React from 'react';
 
 const FormInput = ({ label, ...otherProps }) => {
     return (
