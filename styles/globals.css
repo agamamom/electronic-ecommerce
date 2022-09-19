@@ -37,9 +37,9 @@ a {
 }
 
 .navbar-right {
-  width: 100px;
+  width: 200px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .marquee-text {
@@ -1050,4 +1050,38 @@ span.text-red {
   background-color: black;
   color: white;
   border: none;
+}
+
+.header__optionLineOne {
+  font-size: 10px;
+}
+
+.header__optionLineTwo {
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.header__optionBasket {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.header__basketCount {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.header__nav {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.header__option {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: rgb(21, 19, 19);
 }

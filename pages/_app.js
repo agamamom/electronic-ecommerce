@@ -4,6 +4,7 @@ import { Toaster } from 'react-hot-toast';
 import { Layout } from '../components';
 import LoginLayout from '../components/Layout/LoginLayout';
 import { StateContext } from '../context/StateContext';
+import { UserContext } from '../context/UserContext';
 import { useRouter } from 'next/router';
 
 
@@ -37,7 +38,11 @@ function MyApp({ Component, pageProps, ...appProps }) {
     );
   };
 
-  return <StateContext>{getContent()}</StateContext>;
+  return (
+    <UserContext>
+      <StateContext>{getContent()}</StateContext>
+    </UserContext>
+  );
 }
 
 export default MyApp
