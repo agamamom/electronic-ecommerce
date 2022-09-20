@@ -9,12 +9,18 @@ import { useStateContext } from '../../context/StateContext';
 
 
 const Navbar = () => {
-    const { showCart, setShowCart, totalQuantities } = useStateContext();
+    const { showCart, setShowCart, totalQuantities, setTotalPrice, setCartItems, setTotalQuantities } = useStateContext();
+
+
     const { currentUser, setCurrentUser } = useUserContext();
     const handleAuthenticaton = () => {
         if (currentUser) {
             auth.signOut();
             setCurrentUser(null);
+            localStorage.clear();
+            setCartItems([]);
+            setTotalPrice(0);
+            setTotalQuantities(0);
         }
     }
     return (
@@ -29,7 +35,7 @@ const Navbar = () => {
                     {/* <Link href="/authentication">Login</Link> */}
                     <div className="header__option">
                         <span className="header__optionLineOne">
-                            Hello {!currentUser ? "Guest" : currentUser.email}
+                            Hello, {!currentUser ? "Guest" : currentUser.email}
                         </span>
                         {currentUser ? (
                             <div className='header__optionLineTwo' onClick={handleAuthenticaton}>

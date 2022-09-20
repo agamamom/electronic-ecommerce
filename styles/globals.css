@@ -9,9 +9,6 @@ body,
 
 }
 
-::-webkit-scrollbar {
-  width: 0px;
-}
 
 a {
   color: inherit;
@@ -911,14 +908,16 @@ span.text-red {
 
 
 
-.group {
+.form {
   position: relative;
+  width: 20rem;
+  height: 3rem;
   margin: 45px 0;
 }
 
-.group .form-input {
+.form .form__input {
   background: none;
-  background-color: white;
+  background-color: transparent;
   color: grey;
   font-size: 18px;
   padding: 10px 10px 10px 5px;
@@ -928,34 +927,28 @@ span.text-red {
   border-radius: 0;
   border-bottom: 1px solid grey;
   margin: 25px 0;
+  outline: none;
+  position: relative;
+  z-index: 2;
 }
 
-.group .form-input:focus {
+
+.form .form__input:focus {
   outline: none;
 }
 
-.group .form-input:focus~.form-input-label {
-  top: -14px;
-  font-size: 12px;
-  color: black;
-}
-
-
-.form-input-label {
-  color: grey;
-  font-size: 16px;
-  font-weight: normal;
+.form .form__label {
   position: absolute;
-  pointer-events: none;
-  left: 5px;
-  top: 10px;
-  transition: 300ms ease all;
+  top: 0.8rem;
+  color: grey;
+  cursor: text;
+  transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in;
 }
 
-.form-input-label .shrink {
-  top: -14px;
-  font-size: 12px;
-  color: black;
+.form__input:focus~.form__label,
+.form__input:not(:placeholder-shown).form__input:not(:focus)~.form__label {
+  top: -0.5rem;
+  font-size: 0.8rem;
 }
 
 .authentication-container {
@@ -967,8 +960,10 @@ span.text-red {
 
 @media screen and (max-width: 800px) {
   .authentication-container {
-    display: block;
     width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .signUpForm {
@@ -1044,6 +1039,7 @@ span.text-red {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all .3s;
 }
 
 .signIn-button:hover {

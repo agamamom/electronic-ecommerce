@@ -60,6 +60,7 @@ const SignUpForm = () => {
                     onChange={handleChange}
                     name='displayName'
                     value={displayName}
+
                 />
 
                 <FormInput
@@ -69,6 +70,7 @@ const SignUpForm = () => {
                     onChange={handleChange}
                     name='email'
                     value={email}
+
                 />
 
                 <FormInput
@@ -78,6 +80,7 @@ const SignUpForm = () => {
                     onChange={handleChange}
                     name='password'
                     value={password}
+
                 />
 
                 <FormInput
@@ -87,6 +90,7 @@ const SignUpForm = () => {
                     onChange={handleChange}
                     name='confirmPassword'
                     value={confirmPassword}
+
                 />
                 <button className="signIn-button " type='submit'>Sign Up</button>
             </form>
